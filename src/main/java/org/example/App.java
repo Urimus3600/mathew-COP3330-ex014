@@ -5,7 +5,6 @@
 
 
 package org.example;
-
 import java.util.Scanner;
 
 public class App
@@ -18,6 +17,7 @@ public class App
     {
         final double tax = .055;
         double taxAmt;
+        String output1="";
         Scanner input = new Scanner(System.in);
         System.out.print( "What is the order amount? " );
         double amt = input.nextDouble();
@@ -26,12 +26,11 @@ public class App
 
         if(state.equals("WI")){
             taxAmt= amt * tax;
-            System.out.printf("The subtotal is $%.2f.\n", amt);
-            System.out.printf("The tax is $%.2f.\n", taxAmt);
+            output1 = String.format("The subtotal is $%.2f.\nThe tax is $%.2f.\n", amt, taxAmt);
             amt = ceilMoney(amt+taxAmt);
         }
 
-        System.out.printf("The total is $%.2f.", amt);
+        System.out.printf(output1 + "The total is $%.2f.", amt);
 
     }
 }
